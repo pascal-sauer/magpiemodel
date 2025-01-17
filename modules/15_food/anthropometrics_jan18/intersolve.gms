@@ -5,7 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-option nlp = conopt4;
+option nlp = ipopt;
 option threads = 1;
 
 * A new iteration is started
@@ -43,9 +43,9 @@ solve m15_food_demand USING nlp MAXIMIZING v15_objective;
 * in case of problems try CONOPT3
 if(m15_food_demand.modelstat > 2,
   display "Modelstat > 2 | Retry solve with CONOPT3";
-  option nlp = conopt3;
+  option nlp = ipopt;
   solve m15_food_demand USING nlp MAXIMIZING v15_objective;
-  option nlp = conopt4;
+  option nlp = ipopt;
 );
 
 p15_modelstat(t) = m15_food_demand.modelstat;

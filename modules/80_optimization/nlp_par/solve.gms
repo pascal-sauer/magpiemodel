@@ -12,7 +12,7 @@ p80_counter_modelstat(h) = 0;
 p80_resolve_option(h) = 0;
 
 *** solver settings
-option nlp = conopt4;
+option nlp = ipopt;
 option threads = 1;
 magpie.solvelink = 3;
 magpie.optfile   = s80_optfile ;
@@ -21,15 +21,15 @@ magpie.solprint  = 0 ;
 magpie.holdfixed = 1 ;
 magpie.savepoint = 0;
 
-$onecho > conopt4.opt
+$onecho > ipopt.opt
 Lim_Variable = 1.e25
 $offecho
 
-$onecho > conopt4.op2
+$onecho > ipopt.op2
 Flg_Prep = FALSE
 $offecho
 
-$onecho > conopt4.op3
+$onecho > ipopt.op3
 Flg_NoDefc = TRUE
 $offecho
 
@@ -104,23 +104,23 @@ repeat
         display s80_resolve_option;
         if(p80_resolve_option(h) = 1,
           display "Modelstat > 2 | Retry solve with CONOPT4 default setting";
-          option nlp = conopt4;
+          option nlp = ipopt;
           magpie.optfile = 0;         
         elseif p80_resolve_option(h) = 2, 
           display "Modelstat > 2 | Retry solve with CONOPT4 OPTFILE";
-          option nlp = conopt4;
+          option nlp = ipopt;
           magpie.optfile = 1;         
         elseif p80_resolve_option(h) = 3, 
           display "Modelstat > 2 | Retry solve with CONOPT4 w/o preprocessing";
-          option nlp = conopt4;
+          option nlp = ipopt;
           magpie.optfile = 2;         
         elseif p80_resolve_option(h) = 4, 
           display "Modelstat > 2 | Retry solve with CONOPT4 w/o search for definitional constraints";
-          option nlp = conopt4;
+          option nlp = ipopt;
           magpie.optfile = 3;         
         elseif p80_resolve_option(h) = 5, 
           display "Modelstat > 2 | Retry solve with CONOPT3";
-          option nlp = conopt3;
+          option nlp = ipopt;
           magpie.optfile = 0;         
          );
         if(execerror > 0, execerror = 0);
@@ -128,7 +128,7 @@ repeat
         solve magpie USING nlp MINIMIZING vm_cost_glo;
         magpie.handle$(magpie.handle = 0) = 1;
         p80_handle(h) = magpie.handle;
-        option nlp = conopt4;
+        option nlp = ipopt;
         magpie.optfile = s80_optfile; 
         
         p80_resolve_option(h)$(p80_resolve_option(h) >= 5) = 0;

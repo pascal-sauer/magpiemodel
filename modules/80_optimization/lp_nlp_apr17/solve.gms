@@ -24,21 +24,21 @@ $onecho > cplex.opt
 $offecho
 
 * non-linear solver
-$ifthen "%c80_nlp_solver%" == "conopt4"
-  option nlp        = conopt4;
-$elseif "%c80_nlp_solver%" == "conopt4+cplex"
-  option nlp        = conopt4;
+$ifthen "%c80_nlp_solver%" == "ipopt"
+  option nlp        = ipopt;
+$elseif "%c80_nlp_solver%" == "ipopt+cplex"
+  option nlp        = ipopt;
   s80_add_cplex     = 1;
-$elseif "%c80_nlp_solver%" == "conopt4+conopt3"
-  option nlp        = conopt4;
-  s80_add_conopt3   = 1;
+$elseif "%c80_nlp_solver%" == "ipopt+ipopt"
+  option nlp        = ipopt;
+  s80_add_ipopt   = 1;
 $endif
 
-$onecho > conopt4.opt
+$onecho > ipopt.opt
 Lim_Variable = 1.e25
 $offecho
 
-$onecho > conopt4.op2
+$onecho > ipopt.op2
 Flg_Prep = FALSE
 $offecho
 
@@ -132,32 +132,32 @@ $batinclude "./modules/include.gms" nl_relax
 
 *' @stop
 
-* if s80_add_conopt3 is 1 add additional solve statement for conopt3
-    if((s80_add_conopt3 = 1),
+* if s80_add_ipopt is 1 add additional solve statement for ipopt
+    if((s80_add_ipopt = 1),
       display "Additional solve with CONOPT3!";
-      option nlp = conopt3;
+      option nlp = ipopt;
       solve magpie USING nlp MINIMIZING vm_cost_glo;
       if(s80_secondsolve = 1, solve magpie USING nlp MINIMIZING vm_cost_glo; );
-      option nlp = conopt4;
+      option nlp = ipopt;
     );
 
 * if solve stopped with an error, try it again with CONOPT4 and OPTFILE
     if((magpie.modelstat = 13),
       display "WARNING: Modelstat 13 | retry without Conopt4 pre-processing";
-      option nlp = conopt4;
+      option nlp = ipopt;
       magpie.optfile = 2
       solve magpie USING nlp MINIMIZING vm_cost_glo;
       if(s80_secondsolve = 1, solve magpie USING nlp MINIMIZING vm_cost_glo; );
       magpie.optfile   = s80_optfile ;
     );
 
-* if solve stopped with an error, try it again with conopt3
+* if solve stopped with an error, try it again with ipopt
     if ((magpie.modelstat = 13),
       display "WARNING: Modelstat 13 | retry with CONOPT3!";
-      option nlp = conopt3;
+      option nlp = ipopt;
       solve magpie USING nlp MINIMIZING vm_cost_glo;
       if(s80_secondsolve = 1, solve magpie USING nlp MINIMIZING vm_cost_glo; );
-      option nlp = conopt4;
+      option nlp = ipopt;
     );
 
   p80_modelstat(t) = magpie.modelstat;

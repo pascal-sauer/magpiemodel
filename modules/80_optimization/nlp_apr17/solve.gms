@@ -11,22 +11,22 @@ p80_modelstat(t) = 14;
 s80_resolve_option = 0;
 
 *** solver settings
-option nlp = conopt4;
+option nlp = ipopt;
 option threads = 1;
 magpie.optfile   = s80_optfile;
 magpie.scaleopt  = 1 ;
 magpie.solprint  = 0 ;
 magpie.holdfixed = 1 ;
 
-$onecho > conopt4.opt
+$onecho > ipopt.opt
 Lim_Variable = 1.e25
 $offecho
 
-$onecho > conopt4.op2
+$onecho > ipopt.op2
 Flg_Prep = FALSE
 $offecho
 
-$onecho > conopt4.op3
+$onecho > ipopt.op3
 Flg_NoDefc = TRUE
 $offecho
 
@@ -55,29 +55,29 @@ if (magpie.modelstat > 2,
 
     if(s80_resolve_option = 1,
       display "Modelstat > 2 | Retry solve with CONOPT4 default setting";
-      option nlp = conopt4;
+      option nlp = ipopt;
       magpie.optfile = 0;
     elseif s80_resolve_option = 2,
       display "Modelstat > 2 | Retry solve with CONOPT4 OPTFILE";
-      option nlp = conopt4;
+      option nlp = ipopt;
       magpie.optfile = 1;
     elseif s80_resolve_option = 3,
       display "Modelstat > 2 | Retry solve with CONOPT4 w/o preprocessing";
-      option nlp = conopt4;
+      option nlp = ipopt;
       magpie.optfile = 2;
     elseif s80_resolve_option = 4,
       display "Modelstat > 2 | Retry solve with CONOPT4 w/o search for definitional constraints";
-      option nlp = conopt4;
+      option nlp = ipopt;
       magpie.optfile = 3;
     elseif s80_resolve_option = 5,
       display "Modelstat > 2 | Retry solve with CONOPT3";
-      option nlp = conopt3;
+      option nlp = ipopt;
       magpie.optfile = 0;
      );
 
     solve magpie USING nlp MINIMIZING vm_cost_glo;
     if(s80_secondsolve = 1, solve magpie USING nlp MINIMIZING vm_cost_glo; );
-    option nlp = conopt4;
+    option nlp = ipopt;
     magpie.optfile = s80_optfile;
 
     display "vm_cost_glo.l";

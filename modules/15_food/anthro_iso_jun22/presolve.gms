@@ -23,7 +23,7 @@ else
                                  + f15_demand_paras(regr15,"%c15_food_scenario_noselect%","non_saturation")*(1-p15_country_switch(iso));
 );
 
-option nlp = conopt4;
+option nlp = ipopt;
 option threads = 1;
 
 *' @code
@@ -241,9 +241,9 @@ solve m15_food_demand USING nlp MAXIMIZING v15_objective;
 * in case of problems try CONOPT3
 if(m15_food_demand.modelstat > 2,
   display "Modelstat > 2 | Retry solve with CONOPT3";
-  option nlp = conopt3;
+  option nlp = ipopt;
   solve m15_food_demand USING nlp MAXIMIZING v15_objective;
-  option nlp = conopt4;
+  option nlp = ipopt;
 );
 
 p15_modelstat(t) = m15_food_demand.modelstat;
