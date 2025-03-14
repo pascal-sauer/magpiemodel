@@ -23,13 +23,12 @@ report <- readRDS(file.path(cfg$results_folder, "report.rds"))
 
 
 
-# TODO add quitte version requirement to description
 versionId <- cfg$info$flag
 if (is.null(versionId)) {
   versionId <- sub("^output/", "", cfg$results_folder)
 }
-quitte::addToDataChangelog(report = report,
-                           changelog = cfg$dataChangelog$path,
-                           versionId = versionId,
-                           years = cfg$dataChangelog$years,
-                           variables = cfg$dataChangelog$variables)
+magpie4::addToDataChangelog(report = report,
+                            changelog = cfg$dataChangelog$path,
+                            versionId = versionId,
+                            years = cfg$dataChangelog$years,
+                            variables = cfg$dataChangelog$variables)

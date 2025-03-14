@@ -74,11 +74,11 @@ if (cfg$dataChangelog$path != "") {
   if (is.null(versionId)) {
     versionId <- sub("^output/", "", cfg$results_folder)
   }
-  quitte::addToDataChangelog(report = qu,
-                             changelog = cfg$dataChangelog$path,
-                             versionId = versionId,
-                             years = cfg$dataChangelog$years,
-                             variables = cfg$dataChangelog$variables)
+  magpie4::addToDataChangelog(report = qu,
+                              changelog = cfg$dataChangelog$path,
+                              versionId = versionId,
+                              years = cfg$dataChangelog$years,
+                              variables = cfg$dataChangelog$variables)
 }
 
 if (file.exists(runstatistics) && dir.exists(resultsarchive)) {
