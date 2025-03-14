@@ -69,6 +69,18 @@ if (all(is.na(qu$value))) {
 
 saveRDS(qu, file = rds, version = 2)
 
+if (cfg$dataChangelog$path != "") {
+  versionId <- cfg$info$flag
+  if (is.null(versionId)) {
+    versionId <- sub("^output/", "", cfg$results_folder)
+  }
+  quitte::addToDataChangelog(report = qu,
+                             changelog = cfg$dataChangelog$path,
+                             versionId = versionId,
+                             years = cfg$dataChangelog$years,
+                             variables = cfg$dataChangelog$variables)
+}
+
 if (file.exists(runstatistics) && dir.exists(resultsarchive)) {
   stats <- list()
   load(runstatistics)
