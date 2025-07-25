@@ -5,6 +5,6 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-v15_income_pc_real_ppp_iso.scale(iso) = 10e5;
-v15_kcal_intake_total_regr.scale(iso) = 10e3;
-v15_kcal_regr_total.scale(iso) = 10e4;
+v15_income_pc_real_ppp_iso.scale(iso) = 1e5;
+v15_kcal_intake_total_regr.scale(iso) = 1e3;
+v15_kcal_regr_total.scale(iso) = 1e4;

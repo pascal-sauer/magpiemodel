@@ -5,4 +5,4 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-vm_cost_AEI.scale(i) = 10e4;
+vm_cost_AEI.scale(i) = 1e4;

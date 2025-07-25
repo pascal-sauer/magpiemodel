@@ -5,7 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-v32_cost_establishment.scale(i) = 10e4;
-v32_cost_recur.scale(i) = 10e4;
-vm_cost_fore.scale(i) = 10e5;
-v32_cost_hvarea.scale(i)$(s32_hvarea = 1 OR s32_hvarea = 2) = 10e4;
+v32_cost_establishment.scale(i) = 1e4;
+v32_cost_recur.scale(i) = 1e4;
+vm_cost_fore.scale(i) = 1e5;
+v32_cost_hvarea.scale(i)$(s32_hvarea = 1 OR s32_hvarea = 2) = 1e4;

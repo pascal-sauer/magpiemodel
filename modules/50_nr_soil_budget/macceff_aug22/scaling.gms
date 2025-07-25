@@ -5,4 +5,4 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-vm_nr_inorg_fert_costs.scale(i) = 10e4;
+vm_nr_inorg_fert_costs.scale(i) = 1e4;

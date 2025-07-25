@@ -5,4 +5,4 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-vm_cost_hvarea_natveg.scale(i)$(s35_hvarea = 1 OR s35_hvarea = 2) = 10e4;
+vm_cost_hvarea_natveg.scale(i)$(s35_hvarea = 1 OR s35_hvarea = 2) = 1e4;
