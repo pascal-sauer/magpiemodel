@@ -7,3 +7,4 @@
 
 vm_cost_processing.scale(i) = 1e5;
 vm_processing_substitution_cost.scale(i) = 1e4;
+vm_secondary_overproduction.scale(i,kall,kpr) = 1e-3;
