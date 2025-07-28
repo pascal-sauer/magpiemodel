@@ -5,4 +5,4 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-q29_avl_cropland.scale(j) = 1e-5;
+* q29_avl_cropland.scale(j) = 1e-5;

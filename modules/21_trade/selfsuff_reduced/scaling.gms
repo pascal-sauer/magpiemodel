@@ -8,4 +8,4 @@
 vm_cost_trade.scale(i) = 1e5;
 v21_cost_trade_reg.scale(h,k_trade) = 1e4;
 q21_cost_trade_reg.scale(h,k_trade) = 1e3;
-q21_trade_glo.scale(k_trade) = 1e-3;
+* q21_trade_glo.scale(k_trade) = 1e-3;

@@ -6,7 +6,7 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 vm_landdiff.scale = 1e3;
-q10_land_area.scale(j) = 1e-4;
-q10_landexpansion.scale(j,land_to) = 1e-3;
-q10_transition_from.scale(j,land_from) = 1e-3;
-q10_transition_to.scale(j,land_to) = 1e-3;
+* q10_land_area.scale(j) = 1e-4;
+* q10_landexpansion.scale(j,land_to) = 1e-3;
+* q10_transition_from.scale(j,land_from) = 1e-3;
+* q10_transition_to.scale(j,land_to) = 1e-3;

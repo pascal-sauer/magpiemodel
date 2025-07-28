@@ -8,4 +8,4 @@
 
 vm_cost_prod_livst.scale(i,factors) = 1e5;
 vm_cost_prod_fish.scale(i) = 1e5;
-q70_feed.scale(i,kap,kall) = 1e-3;
+* q70_feed.scale(i,kap,kall) = 1e-3;

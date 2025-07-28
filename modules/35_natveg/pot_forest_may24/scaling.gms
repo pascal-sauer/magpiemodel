@@ -6,19 +6,19 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 vm_cost_hvarea_natveg.scale(i)$(s35_hvarea = 1 OR s35_hvarea = 2) = 1e4;
-v35_other_reduction.scale(j,othertype35,ac) = 1e-3;
-q35_hvarea_other.scale(j,othertype35,ac) = 1e-3;
-q35_hvarea_primforest.scale(j) = 1e-5;
-q35_hvarea_secdforest.scale(j,ac) = 1e-3;
-q35_hvarea_secdforest.scale(j,ac) = 1e-4;
-q35_land_other.scale(j) = 1e-4;
-q35_min_forest.scale(j) = 1e-4;
-q35_other_reduction.scale(j,othertype35,ac) = 1e-4;
-q35_other_regeneration.scale(j) = 1e-4;
-q35_primforest_reduction.scale(j) = 1e-5;
-q35_prod_other.scale(j) = 1e-5;
-q35_prod_primforest.scale(j) = 1e-5;
-q35_prod_secdforest.scale(j) = 1e-5;
-q35_secdforest_reduction.scale(j,ac) = 1e-4;
-q35_secdforest_regeneration.scale(j) = 1e-3;
-q35_secdforest_restoration.scale(j) = 1e-3;
+* v35_other_reduction.scale(j,othertype35,ac) = 1e-3;
+* q35_hvarea_other.scale(j,othertype35,ac) = 1e-3;
+* q35_hvarea_primforest.scale(j) = 1e-5;
+* q35_hvarea_secdforest.scale(j,ac) = 1e-3;
+* q35_hvarea_secdforest.scale(j,ac) = 1e-4;
+* q35_land_other.scale(j) = 1e-4;
+* q35_min_forest.scale(j) = 1e-4;
+* q35_other_reduction.scale(j,othertype35,ac) = 1e-4;
+* q35_other_regeneration.scale(j) = 1e-4;
+* q35_primforest_reduction.scale(j) = 1e-5;
+* q35_prod_other.scale(j) = 1e-5;
+* q35_prod_primforest.scale(j) = 1e-5;
+* q35_prod_secdforest.scale(j) = 1e-5;
+* q35_secdforest_reduction.scale(j,ac) = 1e-4;
+* q35_secdforest_regeneration.scale(j) = 1e-3;
+* q35_secdforest_restoration.scale(j) = 1e-3;
