@@ -5,4 +5,4 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-q17_prod_reg.scale(i,k) = 1e-3;
+* q17_prod_reg.scale(i,k) = 1e-3;
