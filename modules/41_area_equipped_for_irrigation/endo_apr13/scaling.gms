@@ -6,3 +6,4 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 vm_cost_AEI.scale(i) = 1e4;
+q41_cost_AEI.scale(i) = 1e4;

@@ -8,3 +8,4 @@
 v15_income_pc_real_ppp_iso.scale(iso) = 1e5;
 v15_kcal_intake_total_regr.scale(iso) = 1e3;
 v15_kcal_regr_total.scale(iso) = 1e4;
+q15_food_demand.scale(i,kfo) = 1e6;

@@ -7,3 +7,4 @@
 
 vm_cost_prod_kres.scale(i,kres) = 1e4;
 vm_res_ag_burn.scale(i,kcr,attributes) = 1e-3;
+q18_res_recycling_nr.scale(i) = 1e-3;

@@ -12,3 +12,8 @@ v32_cost_hvarea.scale(i)$(s32_hvarea = 1 OR s32_hvarea = 2) = 1e4;
 v32_hvarea_forestry.scale(j,ac) = 1e-3;
 v32_land_reduction.scale(j,type32,ac) = 1e-3;
 vm_landexpansion_forestry.scale(j,type32) = 1e-3;
+q32_cost_recur.scale(i) = 1e4;
+q32_hvarea_forestry.scale(j,ac) = 1e-5;
+q32_land_reduction.scale(j,type32,ac) = 1e-3;
+q32_ndc_aff_limit.scale(j) = 1e-6;
+q32_prod_forestry.scale(j) = 1e-5;

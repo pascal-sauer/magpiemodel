@@ -6,3 +6,4 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 v43_watavail.scale(wat_src,j) = 1e4;
+q43_water.scale(j) = 1e4;
