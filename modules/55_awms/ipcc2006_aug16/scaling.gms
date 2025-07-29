@@ -5,10 +5,10 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-vm_cost_prod_kres.scale(i,kres) = 1e4;
-* vm_res_ag_burn.scale(i,kcr,attributes) = 1e-3;
-q18_prod_res_bg_reg.scale(i,kcr,dm_nr) = 1e-3;
-q18_res_field_balance.scale(i,kcr,attributes) = 1e-3;
-q18_res_field_burn.scale(i,kcr,attributes) = 1e-3;
-q18_res_recycling_nr.scale(i) = 1e-3;
-q18_translate.scale(i,kres,attributes) = 1e-3;
+q55_bal_intake_confinement.scale(i,kli,npk) = 1e-3;
+q55_bal_intake_grazing_cropland.scale(i,kli,npk) = 1e-3;
+q55_bal_intake_grazing_pasture.scale(i,kli,npk) = 1e-3;
+q55_bal_manure.scale(i,kli,awms,npk) = 1e-3;
+q55_manure_confinement.scale(i,kli,awms_conf,npk) = 1e-3;
+q55_manure_recycling.scale(i,npk) = 1e-3;
+

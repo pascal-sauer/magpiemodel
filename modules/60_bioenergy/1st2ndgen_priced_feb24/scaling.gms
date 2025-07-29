@@ -7,5 +7,5 @@
 
 vm_bioenergy_utility.scale(i) = 1e4;
 q60_bioenergy_glo.scale = 1e4;
-q60_bioenergy_reg.scale(i) = 1e3;
+q60_bioenergy_reg.scale(i) = 1e2;
 q60_res_2ndgenBE.scale(i) = 1e3;

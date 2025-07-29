@@ -7,5 +7,6 @@
 
 v59_som_target.scale(j,land) = 1e3;
 v59_som_pool.scale(j,land)   = 1e3;
-* q59_nr_som.scale(j) = 1e-3;
-* q59_nr_som_fertilizer.scale(j) = 1e-3;
+q59_nr_som.scale(j) = 1e-3;
+q59_nr_som_fertilizer.scale(j) = 1e-3;
+q59_nr_som_fertilizer2.scale(j) = 1e-3;

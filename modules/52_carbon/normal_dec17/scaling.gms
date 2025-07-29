@@ -5,4 +5,4 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-q52_emis_co2_actual.scale(i,emis_oneoff) = 1e3;
+q52_emis_co2_actual.scale(i,emis_oneoff) = 1e2;
