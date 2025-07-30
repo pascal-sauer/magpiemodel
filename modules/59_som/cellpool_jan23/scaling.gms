@@ -6,6 +6,8 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 v59_som_target.scale(j,land) = 1e3;
+vm_nr_som.scale(j) = 1e-2;
+vm_nr_som_fertilizer.scale(j) = 1e-2;
 v59_som_pool.scale(j,land)   = 1e3;
 q59_nr_som.scale(j) = 1e-3;
 q59_nr_som_fertilizer.scale(j) = 1e-3;
