@@ -6,8 +6,8 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 vm_cost_trade.scale(i) = 1e5;
-v21_cost_trade_reg.scale(i,k_trade) = 1e4;
-q21_cost_trade_reg.scale(h,k_trade) = 1e2;
+v21_cost_trade_reg.scale(i,k_trade) = 1e2;
+q21_cost_trade_reg.scale(i,k_trade) = 1e2;
 q21_excess_supply.scale(h,k_trade) = 1e-2;
 q21_notrade.scale(h,k_notrade) = 1e-2;
 q21_trade_glo.scale(k_trade) = 1e-3;

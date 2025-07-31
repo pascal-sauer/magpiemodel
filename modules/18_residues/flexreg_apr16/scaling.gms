@@ -5,12 +5,8 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-vm_cost_prod_kres.scale(i,kres) = 1e4;
-<<<<<<< HEAD
+vm_cost_prod_kres.scale(i,kres) = 1e3;
 vm_res_ag_burn.scale(i,kcr,attributes) = 1e-4;
-=======
-vm_res_ag_burn.scale(i,kcr,attributes) = 1e-3;
->>>>>>> e1e75b26e984b36ce0502c018c26902a8d4d445c
 q18_prod_res_bg_reg.scale(i,kcr,dm_nr) = 1e-3;
 q18_res_field_balance.scale(i,kcr,attributes) = 1e-3;
 q18_res_field_burn.scale(i,kcr,attributes) = 1e-3;
