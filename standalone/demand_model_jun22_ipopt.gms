@@ -86,7 +86,7 @@ magpie.scaleopt  = 1 ;
 magpie.holdfixed = 1 ;
 
 option lp         = cplex ;
-option nlp        = conopt4 ;
+option nlp        = ipopt ;
 option iterlim    = 1000000 ;
 option reslim     = 1000000 ;
 option sysout     = Off ;

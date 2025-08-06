@@ -5,9 +5,12 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
+parameters
+  p80_modelstat(t)  modelstat indicator (1)
+  p80_num_nonopt(t) numNOpt indicator (1)
+;
+
 scalars
-    s80_maxiter         maximal solve iterations if modelstat is > 2 (1)    / 30 /
-    s80_optfile         switch to use specfied solver settings (1)          / 1 /
-    s80_secondsolve     second solve statement (binary)                     / 0 /
-    s80_toloptimal      value for CONOPT4 Tol_Optimality                        / 1e-07 /
+  s80_counter          counter (1)
+  s80_resolve_option   option for resolve (1)
 ;

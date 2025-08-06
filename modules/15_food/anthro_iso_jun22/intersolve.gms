@@ -30,7 +30,7 @@
 if (s15_elastic_demand = 1 AND m_year(t) > sm_fix_SSP2,
   display "elastic demand model is activated";
 
-  option nlp = conopt4;
+  option nlp = ipopt;
   option threads = 1;
 
 * A new iteration is started
@@ -55,7 +55,7 @@ if (s15_elastic_demand = 1 AND m_year(t) > sm_fix_SSP2,
      display "Modelstat > 2 | Retry solve with CONOPT3";
      option nlp = conopt3;
      solve m15_food_demand USING nlp MAXIMIZING v15_objective;
-     option nlp = conopt4;
+     option nlp = ipopt;
   );
 
   p15_modelstat(t) = m15_food_demand.modelstat;
