@@ -71,23 +71,14 @@ if (length(map_file) > 1) {
   write.magpie(x, file, comment = comment)
 }
 
-.dissagcrop <- function(gdx, land_hr, map_file) {
-  area <- croparea(gdx,
-    level = "cell", products = "kcr",
-    product_aggr = FALSE, water_aggr = FALSE
-  )
-  area_shr <- area / (dimSums(area, dim = 3) + 10^-10)
-
-  # calculate share of crop land on total cell area
-  crop_shr <- land_hr / dimSums(land_hr, dim = 3)
-  crop_shr <- setNames(crop_shr[, getYears(area_shr), "crop_area"], NULL)
-
-  # calculate crop area as share of total cell area
-  area_shr_hr <- madrat::toolAggregate(area_shr, map_file, to = "cell") * crop_shr
-  return(area_shr_hr)
+.disagcrop <- function(gdx, land_hr) {
+  cropMha <- croparea(gdx, level = "grid", products = "kcr", product_aggr = FALSE, water_aggr = FALSE)
+  stopifnot(abs(dimSums(cropMha, 3) - land_hr[, , "crop_area"]) < 10^-5)
+  cropShares <- cropMha / dimSums(land_hr, 3)
+  return(cropShares)
 }
 
-.dissagBII <- function(gdx, map_file) {
+.disagBII <- function(gdx, map_file) {
   # Biodiversity intactness indicator (BII) at cluster level
   bii_lr <- BII(gdx,
     file = NULL, level = "cell", mode = "auto", landClass = "all",
@@ -339,7 +330,7 @@ gc()
 # ---------------------------------
 
 message("Disaggregating MAgPIE crop types")
-area_shr_hr <- .dissagcrop(gdx, land_split_hr, map_file = map_file)
+area_shr_hr <- .disagcrop(gdx, land_split_hr)
 
 # Write output
 .writeDisagg(area_shr_hr, croparea_hr_share_out_file,
@@ -477,7 +468,7 @@ land_ini_hr <- land_ini_hr[, , getNames(land_ini_lr)]
 getSets(land_ini_hr)["d3.1"] <- "land"
 
 # Disaggregate BII values to high resolution
-bii_hr <- .dissagBII(gdx, map_file = map_file)
+bii_hr <- .disagBII(gdx, map_file = map_file)
 
 # Disaggregate land pools for BII estimation
 land_bii_hr <- interpolateAvlCroplandWeighted(
