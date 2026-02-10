@@ -7,7 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### changed
--
+- **inputdata** updated input data to rev4.127, including fix of FAO mass balance and processing shares where maiz to ethanol values were missing for some countries
+- **PR template** minor changes, require all checkboxes to be checked
+- **13_tc** the interface variable `vm_tau` now represents a linear combination of tau on regular cropland (`v13_tau_core`) and tau on cropland in conservation priority areas (`v13_tau_consv`). Per default values in `vm_tau` are equal to `v13_tau_core`.
+- **inputdata** updated input data to rev4.128, including fix for mismatch between historic urban land in LUH3 and projected future urban land, which is still based on LUH2
+- **inputdata** updated input data to rev4.129, which now includes new protected area data for China not covered in the WDPA data base.
+- **inputdata** updated input data to rev4.130, where product attribute `ge` for `wood` and `woodfuel` is changed to 18 (instead of 15.36) to be in line with crop type values for `betr` and `begr`
+- **60_bioenergy** set `i60_res_2ndgenBE_dem` also for historical period to `off` if `c60_res_2ndgenBE_dem` is set to `off` (do not apply scenario harmonization on it)
+- **renv/activate.R** updated to version 1.1.7
+- **scripts/start** updated biomass collection start script; renamed from `calc_residuePot2ndBE.R` to `generate_biomassForEnergyData.R`
 
 ### added
 -
@@ -16,7 +24,43 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 -
 
 ### fixed
--
+- **32_forestry** fixed parenthesis placement in discounting formula for establishment costs
+- **scripts/start_functions.R** added all extra `cfg` arguments in `start_run()` to the config check call
+- **32_forestry** bugfix limit for endogenous re/afforestation in historical time steps
+- **highres.R** temporary f32_max_aff_area.cs4 is now deleted in case of error
+
+
+## [4.13.0] - 2025-10-23
+
+### changed
+- **56_ghg_policy** extended set of available ghg price scenarios
+- **60_bioenergy** extended set of available second generation bioenergy scenarios
+- **config** input data upgraded from rev4.121 to rev4.122, incorporating new bioenergy demand and GHG price trajectories from REMIND standalone runs with biochar (R34BC).
+- **inputdata** updated input data to rev4.123, which uses LUH3 instead of LUH2v2
+
+### added
+- **renv/archive** store `renv.lock` for release versions
+
+### fixed
+- **14_yield** avoid division by zero for special cases
+- **14_yield** avoid too high yields in edge cases (in case of data mismatches between FAO/LUH croparea and LPJmL yield data avoid zero references yields that lead to overestimated yields)
+- **60_bioenergy** Harmonize 2nd gen bioenergy demand for historic period based on default trajectory "R34M410-SSP2-NPi2025"
+- **inputdata** updated input data to rev4.124, which includes two fixes, one with nitrogen emissions being to low and one about accounting for starches in FAO processing data
+- **inputdata** updated input data to rev4.126, including fixes related to inconsistencies as part of LUH3 update and growing primary forest
+- **scripts/output** removed deprecated `dir` option from `disaggBII` in `disaggregation.R`
+
+
+## [4.12.0] - 2025-09-08
+
+### changed
+- **inputdata** updated input data to include new FAO food balances, allowing for a new set of past years "coup_2015", i.e. past held until 2015 instead of 2010. To be updated once LUH3 input data comes in, to 2020.
+- **readme** added detailed Windows instructions and common installation issues
+- **renv/activate.R** updated to version 1.1.5
+
+### fixed
+- **21_trade** included trade costs into exo realization
+- **62_material** fixed inconsistency for historical bioplastic substrate demand
+- **default.cfg** input data upgraded to use corrected clusters using aligned population data (rev4.120 onwards)
 
 
 ## [4.11.0] - 2025-07-11
@@ -27,7 +71,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **55_awms** Manure excretion is now calculated using `vm_feed_intake`
 - **70_livestock** pasture feed balance flows dynamically linked to pasture demand in regions with high historical scavenged feed use
 - **default.cfg** input data upgraded from rev4.118 to rev4.119 (minor update population and GDP)
-- **README** added forestry to model description 
+- **README** added forestry to model description
 - **readme** added setup instruction specifics for Linux/macOS
 - **scenario_config** update of VLLO scenario to EAT-Lancet 2
 - **scripts** changed setting in the 'mitigation and conservation' start script.
@@ -58,6 +102,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **scripts** request 24h for SLURM jobs (except for medium which still requests 7 days)
 
 ### added
+- **default.cfg** added options for tau scenarios on conservation priority land in `13_tc`.
 - **default.cfg** added option to set Tol_Optimality (GAMS solver setting) to a certain value (GAMS-default 1e-7, new MAgPIE-default 1e-8)
 - **80_optimization** added writing of conopt opt files with using scalars from input
 
@@ -1198,7 +1243,9 @@ This release version is focussed on consistency between the MAgPIE setup and the
 First open source release of the framework. See [MAgPIE 4.0 paper](https://doi.org/10.5194/gmd-12-1299-2019) for more information.
 
 
-[Unreleased]: https://github.com/magpiemodel/magpie/compare/v4.11.0...develop
+[Unreleased]: https://github.com/magpiemodel/magpie/compare/v4.13.0...develop
+[4.13.0]: https://github.com/magpiemodel/magpie/compare/v4.12.0...v4.13.0
+[4.12.0]: https://github.com/magpiemodel/magpie/compare/v4.11.0...v4.12.0
 [4.11.0]: https://github.com/magpiemodel/magpie/compare/v4.10.1...v4.11.0
 [4.10.1]: https://github.com/magpiemodel/magpie/compare/v4.10.0...v4.10.1
 [4.10.0]: https://github.com/magpiemodel/magpie/compare/v4.9.1...v4.10.0
