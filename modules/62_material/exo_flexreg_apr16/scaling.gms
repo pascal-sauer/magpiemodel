@@ -5,5 +5,5 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-q62_dem_material.scale(i,kall_excl_kforestry) = 1e-3;
-q62_dem_material_forestry.scale(i,kforestry) = 1e-2;
+*q62_dem_material.scale(i,kall_excl_kforestry) = 1e-3;
+*q62_dem_material_forestry.scale(i,kforestry) = 1e-2;
