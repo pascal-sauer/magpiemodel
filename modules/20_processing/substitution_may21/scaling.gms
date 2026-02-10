@@ -7,7 +7,7 @@
 
 vm_cost_processing.scale(i) = 1e5;
 vm_processing_substitution_cost.scale(i) = 1e4;
-vm_secondary_overproduction.scale(i,kall,kpr) = 1e-3;
+*vm_secondary_overproduction.scale(i,kall,kpr) = 1e-3;
 *q20_processing.scale(i,kpr,ksd) = 1e-3;
 *q20_processing_aggregation_cereals.scale(i,kcereals20) = 1e-2;
 *q20_processing_aggregation_cotton.scale(i) = 1e-3;

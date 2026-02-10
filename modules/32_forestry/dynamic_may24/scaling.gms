@@ -9,7 +9,7 @@ v32_cost_establishment.scale(i) = 1e3;
 v32_cost_recur.scale(i) = 1e4;
 vm_cost_fore.scale(i) = 1e5;
 v32_cost_hvarea.scale(i)$(s32_hvarea = 1 OR s32_hvarea = 2) = 1e3;
-v32_land.scale(j,type32,ac) = 1e-2;
+*v32_land.scale(j,type32,ac) = 1e-2;
 *q32_aff_pol.scale(j) = 1e-2;
 q32_bgp_aff.scale(j,ac) = 1e4;
 *q32_bv_aff.scale(j,potnatveg) = 1e-2;
