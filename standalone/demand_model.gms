@@ -13,7 +13,7 @@ $offsymlist
 $offlisting
 
 $setglobal c_timesteps  pastandfuture
-$setglobal c_past  till_1975
+$setglobal c_past  till_2010
 $setglobal c_title  default
 
 scalars
@@ -22,7 +22,8 @@ s_use_gdx   use of gdx files                                       / 0 /
 
 *******************************MODULE SETUP*************************************
 $setglobal drivers  aug17
-$setglobal food  anthropometrics_jan18
+* $setglobal food  anthropometrics_jan18
+$setglobal food  anthro_iso_jun22
 
 ***************************PREDEFINED MACROS************************************
 $include "./core/macros.gms"
@@ -61,8 +62,20 @@ sets
 $include "./core/declarations.gms"
 $batinclude "./modules/include.gms" declarations
 
+VARIABLES
+  vm_emission_costs(i)
+;
+vm_emission_costs.fx(i) = -100;
+
+table fm_attributes(attributes,kall) Conversion factors - where X is ton N P K C DM WM or GJ GE (X per tDM)
+$ondelim
+$include "./modules/16_demand/sector_may15/input/fm_attributes.cs3"
+$offdelim
+;
+
 *****************************IMPORT DATA FILES**********************************
 $batinclude "./modules/include.gms" input
+;
 
 ********************OBJECTIVE FUNCTION & CONSTRAINTS****************************
 $batinclude "./modules/include.gms" equations
