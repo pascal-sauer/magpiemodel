@@ -14,7 +14,7 @@ source("scripts/start_functions.R")
 
 #start MAgPIE run
 source("config/default.cfg")
-cfg$title <- "ipopt_1e-7"
+cfg$title <- "ipopt_pascal"
 cfg$gms$optimization <- "nlp_ipopt"
 cfg$gms$s80_toloptimal <- 1.0e-7
 start_run(cfg)

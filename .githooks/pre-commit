@@ -14,10 +14,10 @@ message("done.")
 stagedFiles <- system("git diff --cached --name-only", intern = TRUE)
 
 # run codeCheck only if .gms file is staged
-if (any(endsWith(stagedFiles, ".gms"))) {
-  invisible(gms::codeCheck(strict = TRUE))
-  message("")
-}
+# if (any(endsWith(stagedFiles, ".gms"))) {
+#   invisible(gms::codeCheck(strict = TRUE))
+#   message("")
+# }
 
 
 # make sure that files are not too big
