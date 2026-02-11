@@ -6,4 +6,4 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 
-File optfile /conopt4.opt/;
+File optfile /ipopt.opt/;

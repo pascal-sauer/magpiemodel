@@ -19,10 +19,11 @@ magpie.solprint  = 0 ;
 magpie.holdfixed = 1 ;
 
 put optfile;
-put 'Tol_Optimality = ', s80_toloptimal:12:11 /;
+put 'tol = ', s80_toloptimal:12:11 /;
+put 'print_level = 12';
 putclose optfile;
 
-$onecho > conopt4.op2
+$onecho > ipopt.op2
 Lim_Variable = 1.e25
 $offecho
 
