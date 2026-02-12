@@ -14,7 +14,7 @@ source("scripts/start_functions.R")
 
 #start MAgPIE run
 source("config/default.cfg")
-cfg$title <- "ipopt_pascal_muinit_1e-3"
+cfg$title <- "ipopt_linear_solver ma57"
 cfg$gms$optimization <- "nlp_ipopt"
 cfg$gms$s80_toloptimal <- 1.0e-5
 start_run(cfg)
