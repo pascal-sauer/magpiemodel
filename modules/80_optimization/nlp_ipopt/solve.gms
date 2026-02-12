@@ -20,7 +20,9 @@ magpie.holdfixed = 1 ;
 
 put optfile;
 put 'tol ', s80_toloptimal:12:11 /;
-put 'print_level 12';
+put 'print_level 5' /;
+put 'mu_strategy monotone' /;
+put 'mu_init 1e-3';
 putclose optfile;
 
 $onecho > ipopt.op2
