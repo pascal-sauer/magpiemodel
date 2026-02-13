@@ -14,7 +14,7 @@ source("scripts/start_functions.R")
 
 #start MAgPIE run
 source("config/default.cfg")
-cfg$title <- "ipopt_linear_solver_pardisomkl"
+cfg$title <- "ipopt_warm_start"
 cfg$gms$optimization <- "nlp_ipopt"
-cfg$gms$s80_toloptimal <- 1.0e-5
+# cfg$gms$s80_toloptimal <- 1.0e-5
 start_run(cfg, codeCheck = FALSE)

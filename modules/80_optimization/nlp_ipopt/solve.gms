@@ -19,11 +19,14 @@ magpie.solprint  = 0 ;
 magpie.holdfixed = 1 ;
 
 put optfile;
-put 'tol ', s80_toloptimal:12:11 /;
+put 'print_level 5' /;
+put 'file_print_level 7' /;
+put 'output_file ipopt_detailed.log' /;
+put 'tol 1e-5' /;
 put 'mu_strategy monotone' /;
 put 'mu_init 1e-3' /;
-put 'print_level 7' /;
-put 'linear_solver pardisomkl' /;
+put 'bound_mult_init_method mu-based' /;
+put 'warm_start_init_point yes' /;
 putclose optfile;
 
 $onecho > ipopt.op2
@@ -35,6 +38,7 @@ if(execerror > 0,
 );
 
 *' @code
+gdxLoad '/p/tmp/pascalfu/ipopt-magpie/conopt_magpie_y1995.gdx';
 solve magpie USING nlp MINIMIZING vm_cost_glo;
 *' Optional second solve statement
 if(s80_secondsolve = 1, solve magpie USING nlp MINIMIZING vm_cost_glo; );
