@@ -22,11 +22,20 @@ put optfile;
 put 'print_level 5' /;
 put 'file_print_level 7' /;
 put 'output_file ipopt_detailed.log' /;
+put 'print_info_string yes' /;
+put 'mumps_print_level 3' /;
 put 'tol 1e-5' /;
 put 'mu_strategy monotone' /;
 put 'mu_init 1e-3' /;
-put 'bound_mult_init_method mu-based' /;
-put 'warm_start_init_point yes' /;
+* put 'derivative_test second-order' /;
+* put 'check_derivatives_for_naninf yes' /;
+* put 'nlp_scaling_method none' /;
+* put 'warm_start_init_point yes' /;
+* put 'warm_start_bound_push       1e-9' /;
+* put 'warm_start_bound_frac       1e-9' /;
+* put 'warm_start_slack_bound_frac 1e-9' /;
+* put 'warm_start_slack_bound_push 1e-9' /;
+* put 'warm_start_mult_bound_push  1e-9' /;
 putclose optfile;
 
 $onecho > ipopt.op2
@@ -38,7 +47,7 @@ if(execerror > 0,
 );
 
 *' @code
-gdxLoad '/p/tmp/pascalfu/ipopt-magpie/conopt_magpie_y1995.gdx';
+gdxLoad '/p/tmp/pascalfu/ipopt-magpie/georg_magpie_y1995.gdx';
 solve magpie USING nlp MINIMIZING vm_cost_glo;
 *' Optional second solve statement
 if(s80_secondsolve = 1, solve magpie USING nlp MINIMIZING vm_cost_glo; );
@@ -52,35 +61,35 @@ display magpie.modelstat;
 magpie.modelStat$(magpie.modelStat=NA) = 13;
 
 * in case of problems try different solvers and optfile settings
-if (magpie.modelstat > 2,
-  repeat(
-    s80_counter = s80_counter + 1 ;
-    s80_resolve_option = s80_resolve_option + 1;
+* if (magpie.modelstat > 2,
+*   repeat(
+*     s80_counter = s80_counter + 1 ;
+*     s80_resolve_option = s80_resolve_option + 1;
 
-    solve magpie USING nlp MINIMIZING vm_cost_glo;
-    if(s80_secondsolve = 1, solve magpie USING nlp MINIMIZING vm_cost_glo; );
-    option nlp = ipopt;
-    magpie.optfile = s80_optfile;
+*     solve magpie USING nlp MINIMIZING vm_cost_glo;
+*     if(s80_secondsolve = 1, solve magpie USING nlp MINIMIZING vm_cost_glo; );
+*     option nlp = ipopt;
+*     magpie.optfile = s80_optfile;
 
-    display "vm_cost_glo.l";
-    display vm_cost_glo.l;
+*     display "vm_cost_glo.l";
+*     display vm_cost_glo.l;
 
-*   write extended run information in list file in the case that the final solution is infeasible
-    if ((s80_counter >= (s80_maxiter-1) and magpie.modelstat > 2),
-      magpie.solprint = 1
-    );
+* *   write extended run information in list file in the case that the final solution is infeasible
+*     if ((s80_counter >= (s80_maxiter-1) and magpie.modelstat > 2),
+*       magpie.solprint = 1
+*     );
 
-    display s80_counter;
-    display magpie.modelstat;
-*   Set modelstat to 13 in case of NA for the `until` check of the repeat loop.
-*   Otherwise, the repeat loop will never end.
-    magpie.modelStat$(magpie.modelStat=NA) = 13;
+*     display s80_counter;
+*     display magpie.modelstat;
+* *   Set modelstat to 13 in case of NA for the `until` check of the repeat loop.
+* *   Otherwise, the repeat loop will never end.
+*     magpie.modelStat$(magpie.modelStat=NA) = 13;
 
-    s80_resolve_option$(s80_resolve_option >= 4) = 0;
+*     s80_resolve_option$(s80_resolve_option >= 4) = 0;
 
-    until (magpie.modelstat <= 2 or s80_counter >= s80_maxiter)
-  );
-);
+*     until (magpie.modelstat <= 2 or s80_counter >= s80_maxiter)
+*   );
+* );
 
 p80_modelstat(t) = magpie.modelstat;
 p80_num_nonopt(t) = magpie.numNOpt;
