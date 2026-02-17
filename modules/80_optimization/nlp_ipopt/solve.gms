@@ -24,18 +24,21 @@ put 'file_print_level 7' /;
 put 'output_file ipopt_detailed.log' /;
 put 'print_info_string yes' /;
 put 'mumps_print_level 3' /;
+
 put 'tol 1e-5' /;
+
+put 'mu_init 1e-4' /;
 put 'mu_strategy monotone' /;
-put 'mu_init 1e-3' /;
-* put 'derivative_test second-order' /;
-* put 'check_derivatives_for_naninf yes' /;
-* put 'nlp_scaling_method none' /;
-* put 'warm_start_init_point yes' /;
-* put 'warm_start_bound_push       1e-9' /;
-* put 'warm_start_bound_frac       1e-9' /;
-* put 'warm_start_slack_bound_frac 1e-9' /;
-* put 'warm_start_slack_bound_push 1e-9' /;
-* put 'warm_start_mult_bound_push  1e-9' /;
+put 'mu_linear_decrease_factor 0.85' /;
+put 'mu_superlinear_decrease_power 1.02' /;
+
+put 'nlp_scaling_method none' /;
+put 'warm_start_init_point yes' /;
+put 'warm_start_bound_push 1e-9' /;
+put 'warm_start_bound_frac 1e-9' /;
+put 'warm_start_slack_bound_frac 1e-9' /;
+put 'warm_start_slack_bound_push 1e-9' /;
+put 'warm_start_mult_bound_push 1e-9' /;
 putclose optfile;
 
 $onecho > ipopt.op2

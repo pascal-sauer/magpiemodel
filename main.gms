@@ -179,9 +179,9 @@ $offlisting
 **************************MODEL SPECIFIC SCALARS********************************
 *                    Key parameters during model runs
 
-$setglobal c_timesteps  1
+$setglobal c_timesteps  coup2100
 $setglobal c_past  till_2015
-$setglobal c_title  simple
+$setglobal c_title  warm_full_solution-6
 
 scalars
 s_use_gdx   use of gdx files                                       / 0 /
@@ -194,24 +194,24 @@ $setglobal drivers  aug17
 $setglobal land  landmatrix_dec18
 $setglobal costs  default
 $setglobal interest_rate  select_apr20
-$setglobal tc  exo
+$setglobal tc  endo_jan22
 $setglobal yields  managementcalib_aug19
 
 $setglobal food  anthro_iso_jun22
 $setglobal demand  sector_may15
 $setglobal production  flexreg_apr16
 
-$setglobal residues  off
+$setglobal residues  flexreg_apr16
 $setglobal processing  substitution_may21
 
-$setglobal trade  exo
+$setglobal trade  selfsuff_reduced
 $setglobal land_conservation  area_based_apr22
 
 $setglobal ageclass  oct24
 
-$setglobal cropland  simple_apr24
+$setglobal cropland  detail_apr24
 $setglobal croparea  simple_apr24
-$setglobal past  static
+$setglobal past  endo_jun13
 
 $setglobal forestry  dynamic_may24
 
@@ -220,32 +220,32 @@ $setglobal natveg  pot_forest_may24
 
 $setglobal employment  exo_may22
 $setglobal labor_prod  off
-$setglobal factor_costs  per_ton_fao_may22
+$setglobal factor_costs  sticky_feb18
 $setglobal landconversion  calib
 
-$setglobal transport  off
-$setglobal area_equipped_for_irrigation  static
+$setglobal transport  gtap_nov12
+$setglobal area_equipped_for_irrigation  endo_apr13
 $setglobal water_demand  all_sectors_aug13
 $setglobal water_availability  total_water_aug13
 $setglobal biodiversity  bii_target
 $setglobal climate  static
 
 $setglobal nr_soil_budget  macceff_aug22
-$setglobal nitrogen  off
+$setglobal nitrogen  rescaled_jan21
 $setglobal carbon  normal_dec17
-$setglobal methane  off
+$setglobal methane  ipcc2006_aug22
 $setglobal phosphorus  off
-$setglobal awms  off
+$setglobal awms  ipcc2006_aug16
 $setglobal ghg_policy  price_aug22
 $setglobal maccs  on_aug22
-$setglobal peatland  off
-$setglobal som  static_jan19
+$setglobal peatland  v2
+$setglobal som  cellpool_jan23
 
 $setglobal bioenergy  1st2ndgen_priced_feb24
 $setglobal material  exo_flexreg_apr16
 $setglobal livestock  fbask_jan16
 
-$setglobal disagg_lvst  off
+$setglobal disagg_lvst  foragebased_jul23
 
 $setglobal timber  default
 

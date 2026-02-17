@@ -250,7 +250,7 @@ start_run <- function(cfg, scenario = NULL, codeCheck = TRUE, lock_model = TRUE,
   cfg$gms$c_title <- sub(".", "p", cfg$title, fixed = TRUE)
 
   rundate <- Sys.time()
-  date <- format(rundate, "_%Y-%m-%d_%H.%M.%S")
+  date <- format(rundate, "%Y-%m-%d_%H.%M.%S")
   cfg$results_folder <- gsub(":date:", date, cfg$results_folder, fixed=TRUE)
   cfg$results_folder <- gsub(":title:", cfg$title, cfg$results_folder, fixed=TRUE)
 
