@@ -25,7 +25,7 @@ put 'output_file ipopt_detailed.log' /;
 put 'print_info_string yes' /;
 put 'mumps_print_level 3' /;
 
-put 'tol 1e-5' /;
+put 'tol 1e-7' /;
 
 put 'mu_init 1e-3' /;
 put 'mu_strategy monotone' /;
@@ -52,42 +52,6 @@ if(execerror > 0,
 *' @code
 * gdxLoad '/p/tmp/pascalfu/ipopt-magpie/georg_magpie_y1995.gdx';
 solve magpie USING nlp MINIMIZING vm_cost_glo;
-
-display "vm_cost_glo.l";
-display vm_cost_glo.l;
-display magpie.modelstat;
-display "first solve done, starting second solve using first solution as warm start";
-
-put optfile;
-put 'print_level 5' /;
-put 'file_print_level 7' /;
-put 'output_file ipopt_detailed.log' /;
-put 'print_info_string yes' /;
-put 'mumps_print_level 3' /;
-
-put 'tol 1e-5' /;
-
-put 'mu_init 1e-6' /;
-put 'mu_strategy monotone' /;
-put 'nlp_scaling_method none' /;
-
-put 'warm_start_init_point yes' /;
-put 'warm_start_bound_push 1e-9' /;
-put 'warm_start_bound_frac 1e-9' /;
-put 'warm_start_slack_bound_frac 1e-9' /;
-put 'warm_start_slack_bound_push 1e-9' /;
-put 'warm_start_mult_bound_push 1e-9' /;
-putclose optfile;
-
-solve magpie USING nlp MINIMIZING vm_cost_glo; # solve again, using previous solution
-
-
-
-
-
-
-
-
 *' Optional second solve statement
 * if(s80_secondsolve = 1, solve magpie USING nlp MINIMIZING vm_cost_glo; );
 *' @stop
