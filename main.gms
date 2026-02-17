@@ -181,7 +181,7 @@ $offlisting
 
 $setglobal c_timesteps  1
 $setglobal c_past  till_2015
-$setglobal c_title  spral
+$setglobal c_title  reproduce_1995_solution_2x_warm_start
 
 scalars
 s_use_gdx   use of gdx files                                       / 0 /
