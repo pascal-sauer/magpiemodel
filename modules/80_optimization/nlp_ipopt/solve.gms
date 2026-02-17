@@ -23,9 +23,11 @@ put 'print_level 5' /;
 put 'file_print_level 7' /;
 put 'output_file ipopt_detailed.log' /;
 put 'print_info_string yes' /;
+
+put 'linear_solver mumps' /;
 put 'mumps_print_level 3' /;
 
-put 'tol 1e-7' /;
+put 'tol 1e-5' /;
 
 put 'mu_init 1e-3' /;
 put 'mu_strategy monotone' /;
