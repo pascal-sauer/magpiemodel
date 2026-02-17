@@ -24,8 +24,10 @@ put 'file_print_level 7' /;
 put 'output_file ipopt_detailed.log' /;
 put 'print_info_string yes' /;
 
-put 'linear_solver mumps' /;
-put 'mumps_print_level 3' /;
+* put 'linear_solver mumps' /;
+* put 'mumps_print_level 3' /;
+put 'linear_solver pardisomkl' /;
+put 'pardisomkl_msglvl 100' /;
 
 put 'tol 1e-5' /;
 
