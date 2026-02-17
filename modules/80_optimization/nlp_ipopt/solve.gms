@@ -26,8 +26,8 @@ put 'print_info_string yes' /;
 
 * put 'linear_solver mumps' /;
 * put 'mumps_print_level 3' /;
-put 'linear_solver pardisomkl' /;
-put 'pardisomkl_msglvl 100' /;
+put 'linear_solver spral' /;
+put 'spral_print_level 1' /;
 
 put 'tol 1e-5' /;
 
