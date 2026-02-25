@@ -22,8 +22,15 @@ put optfile;
 put 'tol ', s80_toloptimal:12:11 /;
 put 'mu_strategy monotone' /;
 put 'mu_init 1e-3' /;
-put 'print_level 7' /;
-put 'linear_solver pardisomkl' /;
+* put 'mu_target 1e-5' /;
+put 'print_level 5' /;
+put 'mu_linear_decrease_factor 0.85' /;
+put 'mu_superlinear_decrease_power 1.02' /;
+put 'nlp_scaling_method none' /;
+* put 'barrier_tol_factor 100' /;
+put 'bound_relax_factor 1e-6' /;
+put 'honor_original_bounds yes' /;
+put 'constr_viol_tol 1e-6' /;
 putclose optfile;
 
 $onecho > ipopt.op2
