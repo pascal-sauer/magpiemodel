@@ -181,7 +181,7 @@ $offlisting
 
 $setglobal c_timesteps  1
 $setglobal c_past  till_2015
-$setglobal c_title  reproduce_solution_1995_gams52p5
+$setglobal c_title  warm_start_execute_loadpoint
 
 scalars
 s_use_gdx   use of gdx files                                       / 0 /
