@@ -30,9 +30,9 @@ put 'dependency_detector mumps' /;
 put 'dependency_detection_with_rhs yes' /;
 
 put 'tol 1e-7' /;
-put 'nlp_scaling_method none' /;
+* put 'nlp_scaling_method none' /;
 
-put 'mu_init 1e-4' /;
+put 'mu_init 1e-3' /;
 put 'mu_strategy monotone' /;
 put 'mu_linear_decrease_factor 0.85' /;
 put 'mu_superlinear_decrease_power 1.02' /;
@@ -41,12 +41,14 @@ put 'bound_relax_factor 1e-6' /;
 put 'honor_original_bounds yes' /;
 put 'constr_viol_tol 1e-6' /;
 
-put 'warm_start_init_point yes' /;
-put 'warm_start_bound_push 1e-9' /;
-put 'warm_start_bound_frac 1e-9' /;
-put 'warm_start_slack_bound_frac 1e-9' /;
-put 'warm_start_slack_bound_push 1e-9' /;
-put 'warm_start_mult_bound_push 1e-9' /;
+* put 'warm_start_init_point yes' /;
+* put 'warm_start_bound_push 1e-9' /;
+* put 'warm_start_bound_frac 1e-9' /;
+* put 'warm_start_slack_bound_frac 1e-9' /;
+* put 'warm_start_slack_bound_push 1e-9' /;
+* put 'warm_start_mult_bound_push 1e-9' /;
+
+put 'line_search_method penalty' /;
 putclose optfile;
 
 $onecho > ipopt.op2
@@ -58,7 +60,7 @@ if(execerror > 0,
 );
 
 *' @code
-execute_loadpoint '/p/tmp/pascalfu/ipopt-magpie/georg_magpie_y1995.gdx';
+* execute_loadpoint '/p/tmp/pascalfu/ipopt-magpie/georg_magpie_y1995.gdx';
 solve magpie USING nlp MINIMIZING vm_cost_glo;
 
 *' Optional second solve statement

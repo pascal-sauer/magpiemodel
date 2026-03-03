@@ -181,7 +181,7 @@ $offlisting
 
 $setglobal c_timesteps  1
 $setglobal c_past  till_2015
-$setglobal c_title  warm_start_execute_loadpoint
+$setglobal c_title  line_search_method_penalty
 
 scalars
 s_use_gdx   use of gdx files                                       / 0 /
