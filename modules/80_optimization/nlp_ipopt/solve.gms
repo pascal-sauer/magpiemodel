@@ -19,28 +19,34 @@ magpie.solprint  = 0 ;
 magpie.holdfixed = 1 ;
 
 put optfile;
-put 'print_level 5' /;
+* put 'print_level 5' /;
 put 'file_print_level 7' /;
 put 'output_file ipopt_detailed.log' /;
 put 'print_info_string yes' /;
 
-put 'linear_solver mumps' /;
+* put 'linear_solver mumps' /;
 * put 'mumps_print_level 3' /;
+put 'dependency_detector mumps' /;
+put 'dependency_detection_with_rhs yes' /;
 
-put 'tol 1e-5' /;
+put 'tol 1e-7' /;
+* put 'nlp_scaling_method none' /;
 
 put 'mu_init 1e-3' /;
 put 'mu_strategy monotone' /;
 put 'mu_linear_decrease_factor 0.85' /;
 put 'mu_superlinear_decrease_power 1.02' /;
-put 'nlp_scaling_method none' /;
 
-put 'warm_start_init_point yes' /;
-put 'warm_start_bound_push 1e-9' /;
-put 'warm_start_bound_frac 1e-9' /;
-put 'warm_start_slack_bound_frac 1e-9' /;
-put 'warm_start_slack_bound_push 1e-9' /;
-put 'warm_start_mult_bound_push 1e-9' /;
+put 'bound_relax_factor 1e-6' /;
+put 'honor_original_bounds yes' /;
+put 'constr_viol_tol 1e-6' /;
+
+* put 'warm_start_init_point yes' /;
+* put 'warm_start_bound_push 1e-9' /;
+* put 'warm_start_bound_frac 1e-9' /;
+* put 'warm_start_slack_bound_frac 1e-9' /;
+* put 'warm_start_slack_bound_push 1e-9' /;
+* put 'warm_start_mult_bound_push 1e-9' /;
 putclose optfile;
 
 $onecho > ipopt.op2
@@ -52,7 +58,7 @@ if(execerror > 0,
 );
 
 *' @code
-* gdxLoad '/p/tmp/pascalfu/ipopt-magpie/georg_magpie_y1995.gdx';
+execute_loadpoint '/p/tmp/pascalfu/ipopt-magpie/georg_magpie_y1995.gdx';
 solve magpie USING nlp MINIMIZING vm_cost_glo;
 
 *' Optional second solve statement
@@ -96,38 +102,6 @@ if (magpie.modelstat > 2,
     until (magpie.modelstat <= 2 or s80_counter >= s80_maxiter)
   );
 );
-
-
-
-display "vm_cost_glo.l";
-display vm_cost_glo.l;
-display magpie.modelstat;
-display "first solve done, starting second solve using first solution as warm start";
-
-put optfile;
-put 'print_level 5' /;
-put 'file_print_level 7' /;
-put 'output_file ipopt_detailed.log' /;
-put 'print_info_string yes' /;
-put 'mumps_print_level 3' /;
-
-put 'tol 1e-5' /;
-
-put 'mu_init 1e-6' /;
-put 'mu_strategy monotone' /;
-put 'nlp_scaling_method none' /;
-
-put 'warm_start_init_point yes' /;
-put 'warm_start_bound_push 1e-9' /;
-put 'warm_start_bound_frac 1e-9' /;
-put 'warm_start_slack_bound_frac 1e-9' /;
-put 'warm_start_slack_bound_push 1e-9' /;
-put 'warm_start_mult_bound_push 1e-9' /;
-putclose optfile;
-
-solve magpie USING nlp MINIMIZING vm_cost_glo;
-
-
 
 p80_modelstat(t) = magpie.modelstat;
 p80_num_nonopt(t) = magpie.numNOpt;
