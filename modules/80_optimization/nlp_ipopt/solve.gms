@@ -32,7 +32,7 @@ put 'print_info_string yes' /;
 put 'tol 1e-7' /;
 put 'nlp_scaling_method none' /;
 
-put 'mu_init 1e-4' /;
+put 'mu_init 1e-3' /;
 put 'mu_strategy monotone' /;
 put 'mu_linear_decrease_factor 0.85' /;
 put 'mu_superlinear_decrease_power 1.02' /;
@@ -58,7 +58,7 @@ if(execerror > 0,
 );
 
 *' @code
-execute_loadpoint '/p/tmp/pascalfu/ipopt-magpie/georg_magpie_y1995.gdx';
+execute_loadpoint '/p/tmp/pascalfu/ipopt-magpie/output/2026-03-03_14.05.48_current_best_nodepdetect/magpie_y1995.gdx';
 solve magpie USING nlp MINIMIZING vm_cost_glo;
 
 *' Optional second solve statement

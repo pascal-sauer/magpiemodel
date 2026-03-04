@@ -14,7 +14,7 @@ source("scripts/start_functions.R")
 
 #start MAgPIE run
 source("config/default.cfg")
-cfg$title <- "warm_start_execute_loadpoint_no_depdetect"
+cfg$title <- "warmstart_nodepdetect"
 cfg$gms$optimization <- "nlp_ipopt"
 # cfg$gms$s80_toloptimal <- 1.0e-5
 start_run(cfg, codeCheck = FALSE)
