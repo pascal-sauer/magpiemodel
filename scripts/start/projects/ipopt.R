@@ -16,5 +16,6 @@ source("scripts/start_functions.R")
 source("config/default.cfg")
 cfg$title <- "fullrun_warm_mu-5"
 cfg$gms$optimization <- "nlp_ipopt"
-# cfg$gms$s80_toloptimal <- 1.0e-5
+cfg$gms$s80_toloptimal <- 1.0e-7
+# cfg$gms$c_timesteps <- 1
 start_run(cfg, codeCheck = FALSE)
