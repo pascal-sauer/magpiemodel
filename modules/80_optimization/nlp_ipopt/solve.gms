@@ -15,7 +15,7 @@ option nlp = ipopt;
 option threads = 1;
 magpie.optfile   = s80_optfile;
 magpie.scaleopt  = 1 ;
-magpie.solprint  = 0 ;
+magpie.solprint  = 1 ;
 magpie.holdfixed = 1 ;
 
 put optfile;
@@ -31,6 +31,9 @@ put 'nlp_scaling_method none' /;
 put 'bound_relax_factor 1e-6' /;
 put 'honor_original_bounds yes' /;
 put 'constr_viol_tol 1e-6' /;
+put 'print_timing_statistics yes' /;
+put 'dependency_detector mumps' /;
+put 'dependency_detection_with_rhs yes' /;
 putclose optfile;
 
 $onecho > ipopt.op2
